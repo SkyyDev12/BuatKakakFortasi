@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terima Kasih Kakak Pendamping FORTASI</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-shadow: 1px 1px 2px white;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+        .photo-box {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 5px solid #ff9a9e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .photo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .title-kakak {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 5px;
+        }
+        .name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .pesan {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .btn {
+            background: #ff9a9e;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 154, 158, 0.4);
+        }
+        .btn:hover {
+            background: #ff758c;
+            transform: translateY(-2px);
+        }
+        .music-player {
+            margin-top: 20px;
+            width: 100%;
+            background: #f1f3f5;
+            padding: 10px;
+            border-radius: 15px;
+        }
+        .music-player audio {
+            width: 100%;
+            outline: none;
+        }
+        .emoji-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 999;
+        }
+        .emoji {
+            position: absolute;
+            font-size: 2rem;
+            animation: fall 3s linear forwards;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10%) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Terima Kasih Kakak Pendamping FORTASI ✨</h1>
+
+    <div class="container">
+        <!-- Kartu Kakak Laki-Laki -->
+        <div class="card">
+            <div class="photo-box">
+                <!-- Ganti 'foto-cowok.jpg' dengan nama file foto Kakak Pendamping laki-laki kamu -->
+                <img src="masfadhil.jpg" alt="Foto Kakak Cowok">
+            </div>
+            <div class="title-kakak">Kakak Pendamping Cowok</div>
+            <div class="name">Mas Fadhil</div>
+            <div class="pesan">
+                "Terima kasih Mas sudah membimbing, sabar banget ngadepin kita selama FORTASI. Seru banget dan banyak ilmu bermanfaat yang didapat!"
+            </div>
+            <button class="btn" onclick="tampilEmoji()">Klik untuk Kejutan! 🎉</button>
+        </div>
+
+        <!-- Kartu Kakak Perempuan -->
+        <div class="card">
+            <div class="photo-box">
+                <!-- Ganti 'foto-cewek.jpg' dengan nama file foto Kakak Pendamping perempuan kamu -->
+                <img src="mbaklaras.jpg" alt="Foto Kakak Cewek">
+            </div>
+            <div class="title-kakak">Kakak Pendamping Cewek</div>
+            <div class="name">Mbak Laras</div>
+            <div class="pesan">
+                "Makasih banyak ya Mbak atas semua perhatian dan bimbingannya selama FORTASI. Mbak Laras baik banget dan selalu ceria!"
+            </div>
+            <button class="btn" onclick="tampilEmoji()">Klik untuk Kejutan! ✨</button>
+        </div>
+    </div>
+
+    <!-- Pemutar Lagu -->
+    <div class="music-player" style="max-width: 600px; text-align: center; margin-top: 30px;">
+        <p style="margin-bottom: 10px; font-weight: bold;">🎵 Pencet lagunya dongg 🎵</p>
+        <!-- Ganti 'lagu.mp3' dengan nama file lagu yang kamu inginkan -->
+        <audio controls loop>
+            <source src="Hmm.mp3" type="audio/mp3">
+            Browser Anda tidak mendukung pemutar musik ini.
+        </audio>
+    </div>
+
+    <!-- Container untuk Efek Emoji -->
+    <div id="emojiContainer" class="emoji-container"></div>
+
+    <script>
+        function tampilEmoji() {
+            const container = document.getElementById('emojiContainer');
+            const emojiList = ['💖', '✨', '🎉', '🥰', '🌸', '⭐', '🎈', '🤩'];
+            
+            for (let i = 0; i < 15; i++) {
+                const emoji = document.createElement('div');
+                emoji.classList.add('emoji');
+                emoji.innerText = emojiList[Math.floor(Math.random() * emojiList.length)];
+                
+                // Posisi dan kecepatan acak
+                emoji.style.left = Math.random() * 100 + 'vw';
+                emoji.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                emoji.style.fontSize = (Math.random() * 20 + 30) + 'px';
+                
+                container.appendChild(emoji);
+
+                // Hapus emoji setelah animasi selesai
+                setTimeout(() => {
+                    emoji.remove();
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>
